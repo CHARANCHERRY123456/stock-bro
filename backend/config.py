@@ -10,6 +10,6 @@ print("loading the env variables")
 # POSTGRES_HOST = os.getenv("POSTGRES_HOST")
 # POSTGRES_PORT = os.getenv("POSTGRES_PORT")
 
-# DATABASE_URL = postgresql://postgres:ChXRdHnBewpbIdErnPFXZBuKzruvRyBs@shortline.proxy.rlwy.net:50850/railway
+DATABASE_URL = "postgresql://postgres:ChXRdHnBewpbIdErnPFXZBuKzruvRyBs@shortline.proxy.rlwy.net:50850/railway"
 
-DATABASE_URL = postgresql://postgres:CHERRYCHARAN2380@db.fnzlghlygtunsbiiihyp.supabase.co:5432/postgres
+# DATABASE_URL = "postgresql://postgres:CHERRYCHARAN2380@db.fnzlghlygtunsbiiihyp.supabase.co:5432/postgres"
