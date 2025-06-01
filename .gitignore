@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env
+.env.*
+
+# Python distribution / packaging
+*.egg-info/
+*.egg
+dist/
+build/
+
+# PyInstaller
+*.spec
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+
+# Logs and misc
+*.log
+*.db
+*.sqlite3
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# AWS credentials (precaution if generated)
+.aws/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode Codespaces backup
+*.code-workspace
