@@ -6,12 +6,9 @@ from typing import List, Optional
 from datetime import datetime
 
 from backend.schemas import trade_schema
-print("backend schemas")
 from backend.crud import trade_crud
-print("backend crud")
 
 from backend.database import get_db
-print("backend db")
 
 
 router = APIRouter(prefix="/trades", tags=["Trades"])
