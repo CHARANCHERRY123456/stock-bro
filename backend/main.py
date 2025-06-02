@@ -13,7 +13,7 @@ app = FastAPI(title="Stock-Bro API")
 # Create tables on startup using FastAPI event
 @app.on_event("startup")
 def on_startup():
-    trade_model.Base.metadata.create_all(bind=engine)
+    trade_model.Base.metadata.create_all(bind=engine, checkfirst=True)
 
 
 # Allow CORS (frontend usage)
