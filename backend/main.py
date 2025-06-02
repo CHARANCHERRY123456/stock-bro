@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from backend.database import engine
 from backend.models import trade_model
 from backend.routers import trade_routes
+from backend.routers import analysis_routes
 from fastapi.middleware.cors import CORSMiddleware
 
 # Create tables on startup
@@ -22,3 +23,4 @@ app.add_middleware(
 
 # Register routes
 app.include_router(trade_routes.router)
+app.include_router(analysis_routes.router)
