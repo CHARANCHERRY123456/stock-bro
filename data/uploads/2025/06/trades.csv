@@ -1,0 +1,5 @@
+ticker,price,quantity,side,timestamp
+AAPL,150,10,buy,2025-06-01 10:00:00
+AAPL,155,20,sell,2025-06-01 10:05:00
+GOOG,2800,5,buy,2025-06-01 10:10:00
+GOOG,2820,10,sell,2025-06-01 10:15:00

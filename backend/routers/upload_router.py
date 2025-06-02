@@ -12,6 +12,10 @@ async def upload_csv(file: UploadFile = File(...)):
     if not file.filename.endswith(".csv"):
         raise HTTPException(status_code=400, detail="Only CSV files are allowed.")
 
+    content = await file.read()
+    if not content.strip():
+        raise HTTPException(status_code=400, detail="Uploaded CSV file is empty.")
+
     today = datetime.now().strftime("%Y-%m-%d")
     folder_path = os.path.join(UPLOAD_DIR, today)
     os.makedirs(folder_path, exist_ok=True)
@@ -19,7 +23,6 @@ async def upload_csv(file: UploadFile = File(...)):
     file_path = os.path.join(folder_path, file.filename)
 
     with open(file_path, "wb") as f:
-        content = await file.read()
         f.write(content)
 
     result_path = analyze_trades(file_path, folder_path)
