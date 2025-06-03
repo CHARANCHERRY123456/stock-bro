@@ -36,17 +36,23 @@ def simulate_trades(df, initial_capital=10000):
     profit = final_value - initial_capital
     return trades, profit
 
-def run_simulation(csv_file):
+def run_simulation(csv_file, report_file=None):
     df = load_data(csv_file)
     df = calculate_moving_averages(df)
     df = generate_signals(df)
     trades, profit = simulate_trades(df)
 
-    print("Trade Log:")
+    report_lines = ["Trade Log:"]
     for trade in trades:
-        print(trade)
-    print(f"\nTotal Profit/Loss: ₹{profit:.2f}")
+        report_lines.append(trade)
+    report_lines.append(f"\nTotal Profit/Loss: ₹{profit:.2f}")
+
+    if report_file:
+        with open(report_file, "w") as f:
+            f.write("\n".join(report_lines))
+    else:
+        print("\n".join(report_lines))
 
 # Example usage
 if __name__ == "__main__":
-    run_simulation("data/historical/AAPL.csv")
+    run_simulation("data/historical/AAPL.csv", report_file="simulation_report.txt")

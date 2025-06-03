@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
 from backend.database import SessionLocal
 from backend.models.average import StockAverage
+from backend.background_tasks import notify_price_threshold
 
 price_history = {}
 
@@ -49,17 +50,18 @@ async def process_updates():
 
                 price_history[ticker].append((timestamp, price))
 
-                # Keep only data from last 5 minutes
+                # Keep only data from last 1 minute for alert
                 price_history[ticker] = [
                     (t, p) for (t, p) in price_history[ticker]
-                    if t >= datetime.utcnow() - timedelta(minutes=5)
+                    if t >= datetime.utcnow() - timedelta(minutes=1)
                 ]
 
-                old_price = price_history[ticker][0][1]
-                percent_change = ((price - old_price) / old_price) * 100
-
-                if percent_change > 2:
-                    print(f"[ALERT] {ticker} increased by {percent_change:.2f}% in last 1 min!")
+                if len(price_history[ticker]) > 1:
+                    old_price = price_history[ticker][0][1]
+                    percent_change = ((price - old_price) / old_price) * 100
+                    if percent_change > 2:
+                        print(f"[ALERT] {ticker} increased by {percent_change:.2f}% in last 1 min!")
+                        # notify_price_threshold.delay(ticker, price, 2.0)  # Uncomment if Celery is running
 
 async def main():
     await asyncio.gather(

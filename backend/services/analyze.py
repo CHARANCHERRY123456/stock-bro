@@ -9,8 +9,7 @@ def analyze_trades_by_date(date_str: str):
     """
 
     # Construct file path
-    date_obj = datetime.strptime(date_str, "%Y-%m-%d")
-    input_path = f"data/uploads/{date_obj.year}/{date_obj.month:02d}/{date_obj.day:02d}/trades.csv"
+    input_path = f"data/uploads/{date_str}/trades.csv"
     output_path = f"data/analysis/{date_str}-analysis.csv"
 
     if not os.path.exists(input_path):

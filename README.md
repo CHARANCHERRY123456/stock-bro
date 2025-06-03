@@ -1,49 +1,111 @@
-# Stock-Bro
+# 📚 Stock-Bro: The Friendly Stock Trading Adventure!
 
-Welcome to **Stock-Bro** – your friendly, all-in-one stock trading and analysis platform!
-
-## 🚀 What is Stock-Bro?
-Stock-Bro is a modern web application that helps you easily upload, analyze, and simulate stock trades. Whether you’re a beginner or just curious about how stock trading works, Stock-Bro makes it simple and fun to explore your trading data and learn from it.
-
-## 🧩 Key Features
-- **Upload Your Trades:** Easily upload CSV files with your stock trades.
-- **Automatic Analysis:** Get instant insights and analysis on your trading history – no finance degree required!
-- **Simulate Strategies:** Try out different trading strategies and see how they would have performed.
-- **User-Friendly API:** Built with FastAPI, making it fast and easy to connect with other apps or a frontend.
-- **Ready for Developers:** Clean backend code, easy to extend, and ready for integration.
-
-## 🤔 Why Use Stock-Bro?
-- **No Jargon:** We explain things in plain English, so you don’t need to be a stock market expert.
-- **Learn by Doing:** Upload your own data and see real results.
-- **Experiment Safely:** Test strategies without risking real money.
-
-## 🛠️ How Does It Work?
-1. **Upload** your trade data (CSV files) through the app.
-2. **Analyze** your trades with built-in tools that break down your performance.
-3. **Simulate** different strategies to see what could have happened.
-
-## 📦 Tech Stack
-- **Backend:** FastAPI (Python)
-- **Database:** SQLAlchemy
-- **Data Analysis:** Custom Python scripts
-
-## 📁 Project Structure
-- `backend/` – Main backend code (API, models, routes)
-- `data/` – Uploaded and analyzed files
-- `strategy_simulation/` – Strategy simulation scripts
-- `websocket_simulator/` – Tools for simulating real-time data
-
-## 🚦 Getting Started
-1. Clone the repo
-2. Install dependencies: `pip install -r requirements.txt`
-3. Run the backend: `uvicorn backend.main:app --reload`
-4. Start uploading and analyzing your trades!
-
-## 🙋 Who is this for?
-- Anyone curious about their stock trades
-- Beginners who want to learn by experimenting
-- Developers looking for a stock analysis backend
+Welcome to **Stock-Bro** – a project that turns the world of stock trading and analysis into a fun, interactive story! Whether you’re a curious kid, a beginner, or a developer, this guide will help you explore, test, and understand every part of this magical stock journey.
 
 ---
 
-**Stock-Bro** – Making stock analysis simple, fun, and accessible for everyone!
+## 🏁 The Story Begins: What is Stock-Bro?
+
+Imagine you have a magical notebook where you can write down all your stock trades, ask questions about them, and even play with pretend money to see what would happen if you tried different trading tricks. Stock-Bro is that notebook, but on your computer!
+
+It’s a project that lets you:
+- **Upload your trades** (like writing in your notebook)
+- **Analyze your trades** (get instant feedback and fun facts)
+- **Simulate trading strategies** (play with pretend money and see what works)
+- **Watch real-time stock prices** (like watching a stock race on TV)
+- **(Optionally) Use the cloud** (for those who want to fly even higher!)
+
+---
+
+## 🧩 The Magic Pieces: What’s Inside?
+
+- **FastAPI Backend**: The friendly librarian who listens to your requests and helps you manage your trades.
+- **PostgreSQL Database**: The big book where all your trades are safely stored.
+- **WebSocket Simulator**: The TV that shows you live stock price races!
+- **Trading Simulator**: The playground where you try out different trading tricks.
+- **AWS Lambda (Optional)**: The cloud wizard who can analyze your trades in the sky (but you don’t need him if you don’t have an AWS account).
+
+---
+
+## 🚦 How to Start Your Adventure
+
+### 1. **Set Up Your Tools**
+- Make sure you have Python 3.8+ installed.
+- Install the magic spells (dependencies):
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+### 2. **Start the Librarian (FastAPI Backend)**
+- Run this command:
+  ```bash
+  uvicorn backend.main:app --reload
+  ```
+- Visit `http://localhost:8000/docs` in your browser to see all the things you can ask the librarian to do!
+
+### 3. **Upload Your Trades**
+- Use the `/api/upload-csv/` endpoint to upload a CSV file of your trades (like `data/uploads/2025-06-03/stock.csv`).
+- The librarian will read your trades and write a report for you!
+
+### 4. **Analyze Your Trades**
+- Use the `/analyze?date=YYYY-MM-DD` endpoint to get a summary of your trades for a specific day.
+- The report will be saved in `data/analysis/`.
+
+### 5. **Watch the Stock Race (WebSocket Simulator)**
+- Open two terminals:
+  - In one, run:
+    ```bash
+    python3 websocket_simulator/mock_server.py
+    ```
+  - In the other, run:
+    ```bash
+    python3 websocket_simulator/client.py
+    ```
+- Watch as the TV shows you live price updates and alerts if a stock zooms up by more than 2% in a minute!
+
+### 6. **Play with Trading Strategies**
+- Try the trading playground:
+  ```bash
+  python3 backend/strategy/trading_simulator.py
+  ```
+- See the buy/sell signals and your pretend profit or loss in `simulation_report.txt`.
+
+### 7. **(Optional) Call the Cloud Wizard (AWS Lambda)**
+- If you have an AWS account, you can use `aws_lambda/lambda_function.py` to analyze trades in the cloud.
+- If not, use the local test script:
+  ```bash
+  python3 aws_lambda/local_lambda_test.py
+  ```
+- The report will appear in `data/analysis/`.
+
+---
+
+## 🧙‍♂️ The Magic Explained (For Curious Kids & Beginners)
+- **API**: Like a menu at a restaurant. You tell the librarian what you want, and they bring it to you.
+- **Database**: Like a big diary where every trade is written down.
+- **WebSocket**: Like a live TV channel for stocks.
+- **Simulation**: Like playing a board game with pretend money.
+- **Cloud (AWS)**: Like sending your homework to a wizard in the sky (but you can do everything on your own computer too!).
+
+---
+
+## 📝 How to Test Everything
+- Try uploading a CSV and see the analysis file appear.
+- Watch the WebSocket client for live alerts.
+- Run the trading simulator and check your results.
+- Use the local Lambda test script to analyze trades without AWS.
+
+---
+
+## 💡 Tips & Notes
+- You don’t need AWS or any paid services to enjoy Stock-Bro.
+- All your data stays on your computer unless you want to use the cloud.
+- The code is written to be easy to read and change, so feel free to explore and play!
+
+---
+
+## 🎉 The End (Or a New Beginning!)
+
+Congratulations! You’ve finished the Stock-Bro adventure. You can now upload, analyze, and play with stock trades like a pro. If you want to add more magic, you can always extend the project with new features.
+
+Happy trading and learning! 🚀
