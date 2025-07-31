@@ -1,4 +1,4 @@
-# 📚 Stock-Bro: The Friendly Stock Trading Adventure!
+ # 📚 Stock-Bro: The Friendly Stock Trading Adventure!
 
 Welcome to **Stock-Bro** – a project that turns the world of stock trading and analysis into a fun, interactive story! Whether you’re a curious kid, a beginner, or a developer, this guide will help you explore, test, and understand every part of this magical stock journey.
 
